@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import { Toaster } from 'react-hot-toast'; 
 import Home from './pages/Home';
 import { useSelector } from 'react-redux';
+import ProtectedRoute from './components/ProtectedRoute';
 function App() {
   const {loading}=useSelector(state=>state.alerts);
   return (
@@ -16,9 +17,9 @@ function App() {
     </div>)}
     <Toaster position="top-center" reverseOrder={false}/>
     <Routes>
-    <Route path='/login' element={<Login/>}/>
-    <Route path='/register' element={<Register/>}/>
-    <Route path='/' element={<Home/>}/>
+    <Route path='/login' element={<PublicRoute><Login/></PublicRoute>}/>
+    <Route path='/register' element={<PublicRoute><Register/></PublicRoute>}/>
+    <Route path='/' element={<ProtectedRoute><Home/></ProtectedRoute>}/>
    
     </Routes>
     </BrowserRouter>
