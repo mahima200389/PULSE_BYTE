@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import { Toaster } from 'react-hot-toast'; 
 import Home from './pages/Home';
 import { useSelector } from 'react-redux';
+import PublicRoute from './components/PublicRoute';
 import ProtectedRoute from './components/ProtectedRoute';
 function App() {
   const {loading}=useSelector(state=>state.alerts);
